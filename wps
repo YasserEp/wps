@@ -30,6 +30,6 @@ SSID=($(grep 'name="SSID"' "$config" | sed "s/.*>&quot;//;s/&quot;.*//;s/ /-_-/g
 PSK=($(grep 'name="PreSharedKey"' "$config" | sed "s/.*>&quot;//;s/&quot;.*//;s/ /-_-/g"))
 
 for i in "${!SSID[@]}"; do
-  echo -e "${SSID[$i]} : ${PSK[$i]}" | sed "s/-_-/ /g"
+  echo -e "\e[1m${SSID[$i]} : \e[92m${PSK[$i]}\e[0m" | sed "s/-_-/ /g"
 done
 
